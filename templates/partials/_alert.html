@@ -1,0 +1,12 @@
+{# expects a Django message object or a dict with level and message #}
+{% if message.tags %}
+  {% if 'error' in message.tags %}
+    <div class="alert alert-error mb-4">{{ message }}</div>
+  {% elif 'success' in message.tags %}
+    <div class="alert alert-success mb-4">{{ message }}</div>
+  {% else %}
+    <div class="alert alert-info mb-4">{{ message }}</div>
+  {% endif %}
+{% else %}
+  <div class="alert alert-info mb-4">{{ message }}</div>
+{% endif %}

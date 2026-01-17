@@ -1,0 +1,2 @@
+{# usage: include 'partials/_badge.html' with text='Active' type='success' #}
+<span class="badge {% if type == 'success' %}badge-success{% elif type == 'warning' %}badge-warning{% elif type == 'danger' %}badge-danger{% else %}bg-slate-100 text-slate-800{% endif %}">{{ text }}</span>

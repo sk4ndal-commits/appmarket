@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Create Project — AppMarket{% endblock %}
+{% block header %}
+  {% include 'partials/_page_header.html' %}
+  {% block page_title %}Create a Project{% endblock %}
+  {% block header_actions %}
+    {% include 'partials/_button.html' with text='Cancel' url=cancel_url type='secondary' %}
+  {% endblock %}
+{% endblock %}
+{% block content %}
+  <div class="card max-w-2xl">
+    <form method="post">
+      {% csrf_token %}
+      {% include 'partials/_form_field.html' with name='title' label='Project title' %}
+      {% include 'partials/_form_field.html' with name='description' label='Short description' %}
+      <div class="mt-4">
+        {% include 'partials/_button.html' with text='Create project' type='primary' %}
+      </div>
+    </form>
+  </div>
+{% endblock %}

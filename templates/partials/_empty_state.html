@@ -1,0 +1,9 @@
+<div class="empty-state card">
+  <div class="mb-4">
+    <h3 class="text-lg font-semibold">{{ title }}</h3>
+    {% if subtitle %}<p class="text-sm text-slate-600">{{ subtitle }}</p>{% endif %}
+  </div>
+  {% if cta_url or cta_text %}
+    {% include 'partials/_button.html' with text=cta_text url=cta_url type='primary' %}
+  {% endif %}
+</div>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Log in — AppMarket{% endblock %}
+{% block content %}
+  <div class="max-w-md mx-auto mt-12 card">
+    <h2 class="text-lg font-semibold mb-4">Log in</h2>
+    <form method="post">
+      {% csrf_token %}
+      {% include 'partials/_form_field.html' with name='username' label='Username' %}
+      {% include 'partials/_form_field.html' with name='password' label='Password' type='password' %}
+      <div class="flex items-center justify-between mt-4">
+        {% include 'partials/_button.html' with text='Log in' type='primary' %}
+        <a href="#" class="text-sm text-slate-500">Forgot password?</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

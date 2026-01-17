@@ -1,0 +1,6 @@
+{# usage: include 'partials/_button.html' with text='Save' type='primary' url=url #}
+{% if url %}
+  <a href="{{ url }}" class="{% if type == 'primary' %}btn btn-primary{% elif type == 'danger' %}btn btn-danger{% else %}btn btn-secondary{% endif %}">{{ text }}</a>
+{% else %}
+  <button type="button" class="{% if type == 'primary' %}btn btn-primary{% elif type == 'danger' %}btn btn-danger{% else %}btn btn-secondary{% endif %}">{{ text }}</button>
+{% endif %}

@@ -1,0 +1,8 @@
+{# expects: name, label, value, type='text', errors (list) #}
+<div class="form-field">
+  <label for="{{ name }}" class="form-label">{{ label }}</label>
+  <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value|default:'' }}" class="form-input" />
+  {% if errors %}
+    <div class="form-error">{{ errors.0 }}</div>
+  {% endif %}
+</div>

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard — AppMarket{% endblock %}
+{% block header %}
+  {% include 'partials/_page_header.html' %}
+  {% block page_title %}Your Dashboard{% endblock %}
+{% endblock %}
+{% block content %}
+  <div class="card">
+    <h3 class="section-title">Projects</h3>
+    {% if projects %}
+      <table class="table mt-4">
+        <thead>
+          <tr><th>Title</th><th>Status</th><th>Updated</th></tr>
+        </thead>
+        <tbody>
+          {% for p in projects %}
+            <tr>
+              <td>{{ p.title }}</td>
+              <td>{% include 'partials/_badge.html' with text=p.status type='success' %}</td>
+              <td>{{ p.updated_at }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="empty-state">
+        <p class="mb-4">You don't have any projects yet.</p>
+        {% include 'partials/_button.html' with text='Create a project' url=project_create_url type='primary' %}
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}
