@@ -2,5 +2,5 @@
 {% if url %}
   <a href="{{ url }}" class="{% if type == 'primary' %}btn btn-primary{% elif type == 'danger' %}btn btn-danger{% else %}btn btn-secondary{% endif %}">{{ text }}</a>
 {% else %}
-  <button type="button" class="{% if type == 'primary' %}btn btn-primary{% elif type == 'danger' %}btn btn-danger{% else %}btn btn-secondary{% endif %}">{{ text }}</button>
+  <button type="submit" class="{% if type == 'primary' %}btn btn-primary{% elif type == 'danger' %}btn btn-danger{% else %}btn btn-secondary{% endif %}">{{ text }}</button>
 {% endif %}

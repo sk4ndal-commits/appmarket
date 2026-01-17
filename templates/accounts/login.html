@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Log in — AppMarket{% endblock %}
+{% block content %}
+  <div class="max-w-md mx-auto mt-12 card">
+    <h2 class="text-lg font-semibold mb-4">Log in</h2>
+    {% for message in messages %}
+      {% include 'partials/_alert.html' with message=message %}
+    {% endfor %}
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-field">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-input" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-input" />
+      </div>
+      <div class="mt-4">
+        {% include 'partials/_button.html' with text='Log in' type='primary' %}
+        <a href="{% url 'register' %}" class="ml-3 text-sm text-slate-500">Register</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

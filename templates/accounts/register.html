@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Register — AppMarket{% endblock %}
+{% block content %}
+  <div class="max-w-md mx-auto mt-12 card">
+    <h2 class="text-lg font-semibold mb-4">Create an account</h2>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <div class="form-field">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" value="{{ form.email.value|default_if_none:'' }}" class="form-input" />
+        {% if form.errors.email %}<div class="form-error">{{ form.errors.email.0 }}</div>{% endif %}
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">Password</label>
+        <input type="password" name="password1" class="form-input" />
+        {% if form.errors.password1 %}<div class="form-error">{{ form.errors.password1.0 }}</div>{% endif %}
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">Confirm password</label>
+        <input type="password" name="password2" class="form-input" />
+        {% if form.errors.password2 %}<div class="form-error">{{ form.errors.password2.0 }}</div>{% endif %}
+      </div>
+
+      <div class="mt-4">
+        {% include 'partials/_button.html' with text='Register' type='primary' %}
+        <a href="{% url 'login' %}" class="ml-3 text-sm text-slate-500">Log in</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}
